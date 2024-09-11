@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;800&family=Roboto:wght@300;400;500;900&family=Rubik:wght@300;400;500;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* scroll Bar */
+
+  /* * {
+    scrollbar-width: none;
+    scrollbar-color: #6e6e6e #1e293b;
+  } */
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+  *::-webkit-scrollbar-track {
+    background: #1e293b;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: #6e6e6e;
+    border-radius: 25px;
+    border: 4px solid #1e293b;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #38b6ff;
+  }
+
+  /* input number arrow hiden */
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  html {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+  }
+  body {
+    @apply gradient-bg;
+  }
+}
+@layer components {
+  .gradient-bg {
+    @apply bg-mainBgColor bg-gradient-to-tr from-black to-cyan-950;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-800 to-cyan-400 bg-clip-text text-transparent;
+  }
+
+  .btn {
+    @apply rounded-full text-gray-300 cursor-pointer text-lg truncate font-medium px-7 py-2 text-center bg-transparent border-2
+    transition duration-700 ease-in-out
+    hover:bg-hoverColor hover:text-white hover:border-mainColor;
+  }
+
+  .menu-links {
+    @apply absolute right-0 top-[-300px] bg-menuColor z-50 w-full rounded-lg
+    transition-all duration-500 ease-in-out
+    lg:flex lg:items-center lg:flex-1 lg:relative lg:top-0 lg:bg-transparent;
+  }
+
+  .menu-link {
+    @apply block py-2 px-5 text-lg text-white transition relative
+    after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-1 after:bg-mainColor after:rounded-full
+    after:transition-all after:duration-500
+    hover:text-mainColor hover:after:w-full hover:after:left-0;
+  }
+  .menu-profile {
+    @apply bg-menuColor text-white p-5 w-56 rounded-lg
+    absolute right-0 top-[-300px] z-50 overflow-hidden
+    transition-all duration-500 ease-in-out;
+  }
+  .menu-icon-hover {
+    @apply text-white p-2 
+    transition-all duration-500 
+    hover:text-mainColor hover:bg-hoverColor hover:rounded-[50%];
+  }
+
+  .label-input {
+    @apply text-white font-medium text-lg w-fit;
+  }
+
+  .input-faild {
+    @apply px-2 py-2 bg-transparent text-white font-medium
+    outline-none border-white border-2  rounded-2xl
+    transition-all shadow-md shadow-transparent
+    focus:border-mainColor focus:shadow-mainColor focus:bg-hoverColor;
+  }
+}
+/* NavBar */
+.top-menu {
+  top: 70px;
+}
+/* SiderBar */
+.resize-menu {
+  width: 64px;
+}
